@@ -1,10 +1,25 @@
 {% extends ".master.html" %}
 {% block content %}
-    <header>
-        <div class="container">
-            Cardzone Utilities
-            <a href="./login.html">Click to Login</a>
-        </div>
-        <footer>Developed by <a href="https://lewismackinnon.co.uk">Lewis Mackinnon</a></footer>
-    </header>
+    <div class="loginContainer">
+        <form class="loginForm" method="POST" action="">
+            {{ form.hidden_tag() }}
+            <legend>Cardzone Utilities</legend>
+            <fieldset>
+                <div>
+                    {{ form.storeID(placeholder="StoreID/AdminID") }}
+                </div>
+                <div>
+                    {{ form.password(placeholder="Password") }}
+                </div>
+            </fieldset>
+            <div class="remember">
+                {{ form.remember() }}
+                {{ form.remember.label() }}
+            </div>
+            <div>
+                {{ form.submit(class="loginButton") }}
+            </div>
+        </form>
+    </div>
+    <footer>Developed by <a href="https://lewismackinnon.co.uk" target="blank">Lewis Mackinnon</a></footer>
 {% endblock content %}
