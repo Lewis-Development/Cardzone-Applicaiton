@@ -8,11 +8,8 @@ app.config['SECRET_KEY'] = '75653e5973cb44730548299077a36e58'
 def login():
     form = loginForm()
     if form.validate_on_submit():
-        if form.storeID.data == 1234 and form.password.data == '1234':
-            flash('You have been logged in!', 'success')
-            return redirect(url_for('/'))
-        else:
-            flash('Login unsuccessful. Please try again.', 'danger')
+        if form.storeID.data == 1 and form.password.data == '1':
+            return redirect(url_for('login'))
     return render_template('login.html', title='Login', form=form)
 
 def home():
