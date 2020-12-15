@@ -22,8 +22,10 @@ html, body {
     transform: translate(-50%, -50%);
 
     legend {
+        border-bottom: 1px solid #333;
         color: #333;
         font-size: 24px;
+        padding-bottom: 5px;
         text-align: center;
     }
 
@@ -38,6 +40,7 @@ html, body {
             margin: 8px 0;
             outline: 0;
             padding: 12px 24px;
+            text-align: center;
             width: 100%;
         }
     }
