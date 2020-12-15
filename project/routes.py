@@ -1,8 +1,7 @@
-from flask import Flask, render_template, url_for, flash, redirect
-from forms import loginForm
-
-app = Flask(__name__)
-app.config['SECRET_KEY'] = '75653e5973cb44730548299077a36e58'
+from flask import render_template, url_for, flash, redirect
+from project import app
+from project.forms import loginForm
+from project.models import access, suppliers
 
 @app.route("/", methods=['GET', 'POST'])
 def login():
@@ -14,6 +13,3 @@ def login():
 
 def home():
     return render_template('home.html', title='Home')
-
-if __name__ == '__main__':
-    app.run(debug = True)
