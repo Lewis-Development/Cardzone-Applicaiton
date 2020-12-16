@@ -15,4 +15,5 @@ class createUserForm(FlaskForm):
     phoneNo = StringField('Phone No.')
     area = SelectField('Area', choices=[('1', 'England'), ('2', 'Scotland'), ('3', 'Wales'), ('4', 'Ireland')], validators = [DataRequired()])
     password = StringField('Password', validators = [DataRequired()])
+    access = IntegerField('Access Level', validators = [DataRequired()])
     submit = SubmitField('Create')

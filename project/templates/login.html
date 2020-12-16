@@ -9,13 +9,6 @@
             </div>
             <div>
                 {{ form.password(placeholder="Password") }}
-                {% if form.password.errors %}
-                    <ul class="errors">
-                    {% for error in form.name.errors %}
-                        <li>{{ error }}</li>
-                    {% endfor %}
-                    </ul>
-                {% endif %}
             </div>
         </fieldset>
         <div class="remember">

@@ -1,7 +1,7 @@
 from flask import render_template, url_for, flash, redirect, request
 from project import app, db, bcrypt
 from project.forms import loginForm, createUserForm
-from project.models import users, suppliers
+from project.models import users
 from flask_login import login_user, logout_user, current_user, login_required
 
 @app.route("/", methods=['GET', 'POST'])
@@ -36,7 +36,7 @@ def createUser():
     form = createUserForm()
     if form.validate_on_submit():
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-        user = users(name=form.name.data, address=form.address.data, email=form.email.data, phoneNo=form.phoneNo.data, area=form.area.data, password=hashed_password)
+        user = users(name=form.name.data, address=form.address.data, email=form.email.data, phoneNo=form.phoneNo.data, area=form.area.data, password=hashed_password, access=form.access.data)
         db.session.add(user)
         db.session.commit()
         return redirect(url_for('home'))
