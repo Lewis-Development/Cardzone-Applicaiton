@@ -8,12 +8,12 @@ class loginForm(FlaskForm):
     remember = BooleanField('Save Info')
     submit = SubmitField('Login')
 
-class createUserForm(FlaskForm):
+class userForm(FlaskForm):
     name = StringField('Name', validators = [DataRequired()])
     address = StringField('Address')
     email = StringField('Email')
     phoneNo = StringField('Phone No.')
-    area = SelectField('Area', choices=[('1', 'England'), ('2', 'Scotland'), ('3', 'Wales'), ('4', 'Ireland')], validators = [DataRequired()])
+    area = SelectField('Area', choices=[('GB-ENG', 'England'), ('GB-SCT', 'Scotland'), ('GB-WLS', 'Wales'), ('GB-NIR', 'Ireland')], validators = [DataRequired()])
     password = StringField('Password', validators = [DataRequired()])
     access = IntegerField('Access Level', validators = [DataRequired()])
     submit = SubmitField('Create')

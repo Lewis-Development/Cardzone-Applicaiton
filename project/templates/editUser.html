@@ -1,0 +1,13 @@
+{% extends ".master.html" %}
+{% block content %}
+<form class="userForm" method="POST" action="">
+    {{ form.hidden_tag() }}
+    <legend>Edit User</legend>
+    <fieldset>
+        <div>{{ form.name }}</div>
+    </fieldset>
+    <div>
+        {{ form.submit(class="submitButton") }}
+    </div>
+</form>
+{% endblock content %}
