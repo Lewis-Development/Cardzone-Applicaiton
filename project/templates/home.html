@@ -1,4 +1,27 @@
 {% extends ".master.html" %}
 {% block content %}
-    
+    <header>
+        <h1>Cardzone Web-App</h1>
+    </header>
+
+    <div class="container">
+        <div class="options">
+            <a href="{{ url_for('createUser') }}">
+                <i class="fas fa-user-plus"></i>
+                <div>Create User</div>
+            </a>
+            <a href="">
+                <i class="fas fa-users"></i>
+                <div>View Users</div>
+            </a>
+            <a href="">
+                <i class="fas fa-file-invoice"></i>
+                <div>Create Order</div>
+            </a>
+            <a href="">
+                <i class="fas fa-folder-open"></i>
+                <div>View Orders</div>
+            </a>
+        </div>
+    </div>
 {% endblock content %}

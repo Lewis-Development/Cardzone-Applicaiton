@@ -1,18 +1,26 @@
+$color-list: (
+    "company": #673144,
+    "light": #F7F7F7,
+    "dark": #333,
+    "faded": #CCC,
+);
+
+@function c($color-name) { @return map-get($color-list, $color-name) };
+
 * { box-sizing: border-box; }
 
 html, body {
-    background-color: #673144;
-    color: #FFF;
+    background-color: c(company);
     cursor: default;
     height: 100%;
     margin: 0;
-    overflow: hidden;
+    overflow-x: hidden;
     scroll-behavior: smooth;
     user-select: none;
 }
 
 .loginForm {
-    background: #F7F7F7;
+    background: c(light);
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
     left: 50%;
     margin: 0;
@@ -22,8 +30,8 @@ html, body {
     transform: translate(-50%, -50%);
 
     legend {
-        border-bottom: 1px solid #333;
-        color: #333;
+        border-bottom: 1px solid c(dark);
+        color: c(dark);
         font-size: 24px;
         padding-bottom: 5px;
         text-align: center;
@@ -33,7 +41,7 @@ html, body {
         border: none;
 
         input {
-            border: 1px solid #CCC;
+            border: 1px solid c(faded);
             border-radius: 4px;
             box-sizing: border-box;
             display: inline-block;
@@ -46,28 +54,29 @@ html, body {
     }
 
     .remember {
-        color: #333;
+        color: c(dark);
         float: left;
         margin-top: 5px;
     }
 
     .loginButton {
-        background-color: #F2F2F2;
-        border: 1px solid #333;
+        background-color: c(light);
+        border: 1px solid c(dark);
         float: right;
         font-size: 14px;
         padding: 8px 24px;
         transition: all 0.3s;
 
         &:hover {
-            background-color: #333;
-            color: #FFF;
+            background-color: c(dark);
+            color: c(light);
             cursor: pointer;
         }
     }
 }
 
 footer {
+    color: c(light);
     font-size: 14px;
     left: 50%;
     text-align: center;
@@ -76,9 +85,65 @@ footer {
     transform: translate(-50%, -50%);
 
     a {
-        color: #FFF;
+        color: c(light);
         font-weight: bold;
         position: relative;
         text-decoration: none;
+    }
+}
+
+header {
+    background-color: c(light);
+    color: c(dark);
+    margin-bottom: 15px;
+    overflow: hidden;
+
+    h1 {
+        float: left;
+        font-size: 24px;
+        font-weight: normal;
+        padding: 5px 16px;
+        text-align: center;
+    }
+}
+
+.container {
+    background-color: c(light);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, 0%);
+    width: 90%;
+
+    .options {
+        display: grid;
+        grid-gap: 10px;
+        grid-template-columns: auto auto auto auto;
+        padding: 10px;
+    
+        a {
+            background-color: c(light);
+            border: 1px solid c(faded);
+            border-radius: 4px;
+            color: c(dark);
+            padding: 25%;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s;
+    
+            &:hover {
+                background-color: c(dark);
+                color: c(light);
+                cursor: pointer;
+            }
+    
+            i {
+                font-size: 36px;
+            }
+    
+            div {
+                margin-top: 10px;
+            }
+        }
     }
 }

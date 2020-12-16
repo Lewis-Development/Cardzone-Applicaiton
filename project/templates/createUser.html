@@ -1,0 +1,18 @@
+{% extends ".master.html" %}
+{% block content %}
+<form class="loginForm" method="POST" action="">
+    {{ form.hidden_tag() }}
+    <legend>Create New User</legend>
+    <fieldset>
+        <div>{{ form.name(placeholder="Full Name") }}</div>
+        <div>{{ form.address(placeholder="Delivery Address") }}</div>
+        <div>{{ form.email(placeholder="Email Address") }}</div>
+        <div>{{ form.phoneNo(placeholder="Phone No.") }}</div>
+        <div>{{ form.area(placeholder="Area") }}</div>
+        <div>{{ form.password(placeholder="password") }}</div>
+    </fieldset>
+    <div>
+        {{ form.submit(class="loginButton") }}
+    </div>
+</form>
+{% endblock content %}

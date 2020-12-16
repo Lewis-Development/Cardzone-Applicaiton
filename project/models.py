@@ -1,6 +1,6 @@
 from project import db
 
-class access(db.Model):
+class users(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(30))
     address = db.Column(db.String(80))
@@ -10,7 +10,7 @@ class access(db.Model):
     password = db.Column(db.String(60), nullable=False, default='password')
 
     def __repr__(self):
-        return f"access('{self.id}', '{self.password}')"
+        return f"users('{self.id}', '{self.password}')"
 
 class suppliers(db.Model):
     id = db.Column(db.Integer, primary_key=True)
