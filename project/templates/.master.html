@@ -19,10 +19,10 @@
     </head>
     <body>
         {% if current_user.is_authenticated %}
-        <header>
-            <h1>Cardzone Web-App, <span>{{ current_user.name }}</span></h1>
-            <a href="{{ url_for('logout') }}">Logout</a>
-        </header>
+            <header>
+                <h1>Cardzone Web-App, <span>{{ current_user.name }}</span></h1>
+                <a href="{{ url_for('logout') }}">Logout</a>
+            </header>
         {% endif %}
         {% block content %}{% endblock %}
     </body>

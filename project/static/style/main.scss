@@ -3,6 +3,7 @@ $color-list: (
     "light": #F7F7F7,
     "dark": #333,
     "faded": #CCC,
+    "warning": #FF0000,
 );
 
 @function c($color-name) { @return map-get($color-list, $color-name) };
@@ -72,6 +73,15 @@ html, body {
             color: c(light);
             cursor: pointer;
         }
+    }
+
+    .error {
+        color: c(warning);
+        font-size: 12px;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 }
 
