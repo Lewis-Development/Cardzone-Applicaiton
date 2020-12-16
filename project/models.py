@@ -1,6 +1,11 @@
-from project import db
+from project import db, login_manager
+from flask_login import UserMixin
 
-class users(db.Model):
+@login_manager.user_loader
+def load_user(user_id):
+    return users.query.get(int(user_id))
+
+class users(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(30))
     address = db.Column(db.String(80))
@@ -10,7 +15,7 @@ class users(db.Model):
     password = db.Column(db.String(60), nullable=False, default='password')
 
     def __repr__(self):
-        return f"users('{self.id}', '{self.password}')"
+        return f"users('{self.id}', '{self.name}', '{self.address}', '{self.email}', '{self.phoneNo}', '{self.area}', '{self.password}')"
 
 class suppliers(db.Model):
     id = db.Column(db.Integer, primary_key=True)

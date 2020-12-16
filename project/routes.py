@@ -1,21 +1,35 @@
-from flask import render_template, url_for, flash, redirect
+from flask import render_template, url_for, flash, redirect, request
 from project import app, db, bcrypt
 from project.forms import loginForm, createUserForm
 from project.models import users, suppliers
+from flask_login import login_user, logout_user, current_user, login_required
 
 @app.route("/", methods=['GET', 'POST'])
 def login():
+    if current_user.is_authenticated:
+        return redirect(url_for('home'))
     form = loginForm()
     if form.validate_on_submit():
-        if form.storeID.data == 1 and form.password.data == '1':
-            return redirect(url_for('login'))
+        user = users.query.filter_by(id=form.userID.data).first()
+        if user and bcrypt.check_password_hash(user.password, form.password.data):
+            login_user(user, remember=form.remember.data)
+            next_page = request.args.get('next')
+            return redirect(next_page) if next_page else redirect(url_for('home'))
     return render_template('login.html', title='Login', form=form)
 
+@app.route("/logout")
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('login'))
+
 @app.route("/home")
+@login_required
 def home():
     return render_template('home.html', title='Home')
 
 @app.route("/createUser", methods=['GET', 'POST'])
+@login_required
 def createUser():
     form = createUserForm()
     if form.validate_on_submit():

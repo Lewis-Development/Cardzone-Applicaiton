@@ -18,6 +18,12 @@
         <script src="https://kit.fontawesome.com/b48027f29e.js" crossorigin="anonymous"></script>
     </head>
     <body>
+        {% if current_user.is_authenticated %}
+        <header>
+            <h1>Cardzone Web-App, <span>{{ current_user.name }}</span></h1>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </header>
+        {% endif %}
         {% block content %}{% endblock %}
     </body>
 </html>

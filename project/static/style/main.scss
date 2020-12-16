@@ -104,6 +104,29 @@ header {
         font-weight: normal;
         padding: 5px 16px;
         text-align: center;
+
+        span {
+            font-size: 12px;
+        }
+    }
+
+    a {
+        background-color: c(light);
+        border: 1px solid c(dark);
+        color: c(dark);
+        float: right;
+        font-size: 14px;
+        margin: 0 16px 0 0;
+        padding: 8px 24px;
+        transform: translateY(50%);
+        text-decoration: none;
+        transition: all 0.3s;
+
+        &:hover {
+            background-color: c(dark);
+            color: c(light);
+            cursor: pointer;
+        }
     }
 }
 
