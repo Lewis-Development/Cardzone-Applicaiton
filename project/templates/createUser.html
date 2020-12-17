@@ -4,13 +4,18 @@
     {{ form.hidden_tag() }}
     <legend>Create User</legend>
     <fieldset>
-        <div>{{ form.name(placeholder="Full Name") }}</div>
-        <div>{{ form.address(placeholder="Delivery Address") }}</div>
-        <div>{{ form.email(placeholder="Email Address") }}</div>
-        <div>{{ form.phone(placeholder="Phone No.") }}</div>
-        <div>{{ form.area(placeholder="Area Manager") }}</div>
-        <div>{{ form.password(placeholder="Password") }}</div>
-        <div>{{ form.access(placeholder="Access Level") }}</div>
+        <div class="inputs">
+            {{ form.name(placeholder="Full Name") }}
+            {{ form.address(placeholder="Delivery Address") }}
+            {{ form.email(placeholder="Email Address") }}
+            {{ form.phone(placeholder="Phone No.") }}
+            {{ form.password(placeholder="Password") }}
+        </div>
+
+        <div class="selects">
+            {{ form.area() }}
+            {{ form.access() }}
+        </div>
     </fieldset>
     <div>
         {{ form.submit(class="submitButton") }}

@@ -63,6 +63,8 @@ def createUser():
         db.session.add(user)
         db.session.commit()
 
+        flash(f'- Created User ({user.name})')
+
         return redirect(url_for('userManagement'))
 
     return render_template('createUser.html', title='Create User', form=form)
@@ -74,7 +76,7 @@ def removeUser(id):
     user = find.first()
 
     if user and user != current_user:
-        flash('User Removed')
+        flash(f'- Removed User ({user.name})')
         db.session.delete(user)
         db.session.commit()
     

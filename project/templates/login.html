@@ -4,8 +4,8 @@
         {{ form.hidden_tag() }}
         <legend>Cardzone Web</legend>
         <fieldset>
-            <div>{{ form.userID(placeholder="UserID") }}</div>
-            <div>{{ form.password(placeholder="Password") }}</div>
+            {{ form.userID(placeholder="UserID") }}
+            {{ form.password(placeholder="Password") }}
         </fieldset>
 
         <div class="remember">
@@ -13,7 +13,7 @@
             {{ form.remember.label }}
         </div>
 
-        <div>{{ form.submit(class="submitButton") }}</div>
+        {{ form.submit(class="submitButton") }}
 
         {% with messages = get_flashed_messages() %}
             {% if messages %}

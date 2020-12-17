@@ -22,6 +22,7 @@
             <header>
                 <h1>Cardzone Web-App <span>({{ current_user.name }})</span></h1>
                 <a href="{{ url_for('logout') }}">Logout</a>
+                <a href="{{ url_for('home') }}">Home</a>
             </header>
         {% endif %}
         {% block content %}{% endblock %}
