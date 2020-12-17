@@ -2,18 +2,18 @@
 {% block content %}
 <form class="userForm" method="POST" action="">
     {{ form.hidden_tag() }}
-    <legend>Create New User</legend>
+    <legend>Create User</legend>
     <fieldset>
         <div>{{ form.name(placeholder="Full Name") }}</div>
         <div>{{ form.address(placeholder="Delivery Address") }}</div>
         <div>{{ form.email(placeholder="Email Address") }}</div>
-        <div>{{ form.phoneNo(placeholder="Phone No.") }}</div>
-        <div>{{ form.area(placeholder="Area") }}</div>
+        <div>{{ form.phone(placeholder="Phone No.") }}</div>
+        <div>{{ form.area(placeholder="Area Manager") }}</div>
         <div>{{ form.password(placeholder="Password") }}</div>
         <div>{{ form.access(placeholder="Access Level") }}</div>
     </fieldset>
     <div>
-        {{ form.submit(class="loginButton") }}
+        {{ form.submit(class="submitButton") }}
     </div>
 </form>
 {% endblock content %}

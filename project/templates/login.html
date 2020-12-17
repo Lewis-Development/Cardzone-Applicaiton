@@ -2,7 +2,7 @@
 {% block content %}
     <form class="userForm" method="POST" action="">
         {{ form.hidden_tag() }}
-        <legend>Cardzone Web-App</legend>
+        <legend>Cardzone Web</legend>
         <fieldset>
             <div>
                 {{ form.userID(placeholder="UserID") }}
@@ -16,7 +16,7 @@
             {{ form.remember.label }}
         </div>
         <div>
-            {{ form.submit(class="loginButton") }}
+            {{ form.submit(class="submitButton") }}
         </div>
         {% with messages = get_flashed_messages() %}
             {% if messages %}

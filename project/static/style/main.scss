@@ -3,10 +3,16 @@ $color-list: (
     "light": #F7F7F7,
     "dark": #333,
     "faded": #CCC,
+    "slight": #DCDCDC,
     "warning": #FF0000,
 );
 
 @function c($color-name) { @return map-get($color-list, $color-name) };
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #222; }
+::-webkit-scrollbar-thumb { background: #333; }
+::-webkit-scrollbar-thumb:hover { background: #444; }
 
 * { box-sizing: border-box; }
 
@@ -15,7 +21,6 @@ html, body {
     cursor: default;
     height: 100%;
     margin: 0;
-    overflow-x: hidden;
     scroll-behavior: smooth;
     user-select: none;
 }
@@ -42,6 +47,18 @@ html, body {
         border: none;
 
         input {
+            border: 1px solid c(faded);
+            border-radius: 4px;
+            box-sizing: border-box;
+            display: inline-block;
+            margin: 8px 0;
+            outline: 0;
+            padding: 12px 24px;
+            text-align: center;
+            width: 100%;
+        }
+
+        select {
             border: 1px solid c(faded);
             border-radius: 4px;
             box-sizing: border-box;
@@ -115,9 +132,7 @@ header {
         padding: 5px 16px;
         text-align: center;
 
-        span {
-            font-size: 12px;
-        }
+        span { font-size: 12px; }
     }
 
     a {
@@ -129,6 +144,32 @@ header {
         margin: 0 16px 0 0;
         padding: 8px 24px;
         transform: translateY(50%);
+        text-decoration: none;
+        transition: all 0.3s;
+
+        &:hover {
+            background-color: c(dark);
+            color: c(light);
+            cursor: pointer;
+        }
+    }
+}
+
+.topBar {
+    background-color: c(light);
+    color: c(dark);
+    margin: 10px;
+    overflow: hidden;
+    padding: 10px;
+
+    a {
+        background-color: c(light);
+        border: 1px solid c(dark);
+        color: c(dark);
+        float: right;
+        font-size: 14px;
+        margin: 0 16px 0 0;
+        padding: 8px 24px;
         text-decoration: none;
         transition: all 0.3s;
 
@@ -170,18 +211,25 @@ header {
                 cursor: pointer;
             }
     
-            i {
-                font-size: 36px;
-            }
-    
-            div {
-                margin-top: 10px;
-            }
+            i { font-size: 36px; }
+            div { margin-top: 10px; }
         }
     }
 
     table {
+        color: c(dark);
         text-align: center;
+        user-select: text;
         width: 100%;
+
+        th { border-bottom: 1px solid c(faded); }
+        tr:hover { background-color: c(slight); }
+
+        a {
+            color: c(dark);
+            margin: 2px;
+            padding: 3px;
+            text-decoration: none;
+        }
     }
 }
