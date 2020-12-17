@@ -1,9 +1,5 @@
 {% extends ".master.html" %}
 {% block content %}
-    <div class="topBar">
-        <a href="{{ url_for('createUser') }}">Create New</a>
-    </div>
-
     {% with messages = get_flashed_messages() %}
         {% if messages %}
             {% for message in messages %}
@@ -13,6 +9,10 @@
     {% endwith %}
 
     <div class="container">
+        <div class="topBar">
+            <a href="{{ url_for('createUser') }}">Create User</a>
+        </div>
+
         {{ table }}
     </div>
 {% endblock content %}

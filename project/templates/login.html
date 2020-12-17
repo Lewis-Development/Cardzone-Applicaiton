@@ -4,20 +4,17 @@
         {{ form.hidden_tag() }}
         <legend>Cardzone Web</legend>
         <fieldset>
-            <div>
-                {{ form.userID(placeholder="UserID") }}
-            </div>
-            <div>
-                {{ form.password(placeholder="Password") }}
-            </div>
+            <div>{{ form.userID(placeholder="UserID") }}</div>
+            <div>{{ form.password(placeholder="Password") }}</div>
         </fieldset>
+
         <div class="remember">
             {{ form.remember }}
             {{ form.remember.label }}
         </div>
-        <div>
-            {{ form.submit(class="submitButton") }}
-        </div>
+
+        <div>{{ form.submit(class="submitButton") }}</div>
+
         {% with messages = get_flashed_messages() %}
             {% if messages %}
                 {% for message in messages %}
@@ -26,5 +23,6 @@
             {% endif %}
         {% endwith %}
     </form>
+    
     <footer>Developed by <a href="https://lewismackinnon.co.uk" target="blank">Lewis Mackinnon</a></footer>
 {% endblock content %}

@@ -5,7 +5,7 @@ class userList(Table):
     name = Col('Name')
     address = Col('Address')
     email = Col('Email')
-    phone = Col('Phone No.')
+    phone = Col('Phone')
     area = Col('Area')
     access = Col('Access')
     edit = LinkCol('Edit', 'removeUser', url_kwargs=dict(id='id'))

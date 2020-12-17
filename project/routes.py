@@ -36,11 +36,11 @@ def logout():
 def home():
     return render_template('home.html', title='Home')
 
-@app.route("/users")
+@app.route("/userManagement")
 @login_required
 def userManagement():
     table = userList(users.query.all())
-    return render_template('users.html', title='Users', table=table)
+    return render_template('userManagement.html', title='Users', table=table)
 
 @app.route("/createUser", methods=['GET', 'POST'])
 @login_required
@@ -63,7 +63,7 @@ def createUser():
         db.session.add(user)
         db.session.commit()
 
-        return redirect(url_for('home'))
+        return redirect(url_for('userManagement'))
 
     return render_template('createUser.html', title='Create User', form=form)
 
