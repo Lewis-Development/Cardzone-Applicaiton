@@ -5,7 +5,6 @@ $color-list: (
     "faded": #CCC,
     "slight": #DCDCDC,
     "warning": #FF0000,
-    "important": #8B0000,
 );
 
 @function c($color-name) { @return map-get($color-list, $color-name) };
@@ -24,6 +23,73 @@ html, body {
     margin: 0;
     scroll-behavior: smooth;
     user-select: none;
+}
+
+.userForm {
+    background: c(light);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    left: 50%;
+    margin: 0;
+    padding: 30px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    legend {
+        border-bottom: 1px solid c(dark);
+        color: c(dark);
+        font-size: 24px;
+        padding-bottom: 5px;
+        text-align: center;
+    }
+
+    fieldset {
+        border: none;
+
+        .inputs { border-bottom: 1px solid c(faded); }
+
+        input, select {
+            border: 1px solid c(faded);
+            border-radius: 4px;
+            box-sizing: border-box;
+            display: inline-block;
+            margin: 8px 0;
+            outline: 0;
+            padding: 12px 24px;
+            text-align: center;
+            width: 100%;
+        }
+    }
+
+    .remember {
+        color: c(dark);
+        float: left;
+        margin-top: 5px;
+    }
+
+    .submitButton {
+        background-color: c(light);
+        border: 1px solid c(dark);
+        float: right;
+        font-size: 14px;
+        padding: 8px 24px;
+        transition: all 0.3s;
+
+        &:hover {
+            background-color: c(dark);
+            color: c(light);
+            cursor: pointer;
+        }
+    }
+
+    .error {
+        color: c(warning);
+        font-size: 12px;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 }
 
 header {
@@ -69,69 +135,6 @@ header {
     position: absolute;
     transform: translate(-50%, 0%);
     width: 90%;
-
-    .userForm {
-        padding: 30px;
-    
-        legend {
-            border-bottom: 1px solid c(dark);
-            color: c(dark);
-            font-size: 24px;
-            padding-bottom: 5px;
-            text-align: center;
-        }
-    
-        fieldset {
-            border: none;
-    
-            .inputs { border-bottom: 1px solid c(faded); }
-    
-            input, select {
-                border: 1px solid c(faded);
-                border-radius: 4px;
-                box-sizing: border-box;
-                display: inline-block;
-                margin: 8px 0;
-                outline: 0;
-                padding: 12px 24px;
-                text-align: center;
-                width: 100%;
-            }
-
-            .required { border: 1px solid c(important); }
-        }
-    
-        .remember {
-            color: c(dark);
-            float: left;
-            margin-top: 5px;
-        }
-    
-        .submitButton {
-            background-color: c(light);
-            border: 1px solid c(dark);
-            float: right;
-            font-size: 14px;
-            margin-bottom: 10px;
-            padding: 8px 24px;
-            transition: all 0.3s;
-    
-            &:hover {
-                background-color: c(dark);
-                color: c(light);
-                cursor: pointer;
-            }
-        }
-    
-        .error {
-            color: c(warning);
-            font-size: 12px;
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-    }
 
     .options {
         display: grid;

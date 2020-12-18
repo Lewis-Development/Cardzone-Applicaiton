@@ -1,26 +1,24 @@
 {% extends ".master.html" %}
 {% block content %}
-    <div class="container">
-        <form class="userForm" method="POST" action="">
-            {{ form.hidden_tag() }}
-            <legend>Create New User</legend>
-            <fieldset>
-                <div class="inputs">
-                    {{ form.name(class="required", placeholder="Full Name") }}
-                    {{ form.address(placeholder="Delivery Address") }}
-                    {{ form.email(placeholder="Email Address") }}
-                    {{ form.phone(placeholder="Phone No.") }}
-                    {{ form.password(class="required", placeholder="Password") }}
-                    {{ form.area(placeholder="Area Manager") }}
-                </div>
+<form class="userForm" method="POST" action="">
+    {{ form.hidden_tag() }}
+    <legend>Create User</legend>
+    <fieldset>
+        <div class="inputs">
+            {{ form.name(placeholder="Full Name") }}
+            {{ form.address(placeholder="Delivery Address") }}
+            {{ form.email(placeholder="Email Address") }}
+            {{ form.phone(placeholder="Phone No.") }}
+            {{ form.password(placeholder="Password") }}
+        </div>
 
-                <div class="selects">
-                    {{ form.access() }}
-                </div>
-            </fieldset>
-            <div>
-                {{ form.submit(class="submitButton") }}
-            </div>
-        </form>
+        <div class="selects">
+            {{ form.area() }}
+            {{ form.access() }}
+        </div>
+    </fieldset>
+    <div>
+        {{ form.submit(class="submitButton") }}
     </div>
+</form>
 {% endblock content %}

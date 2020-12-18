@@ -2,7 +2,7 @@
 {% block content %}
     <div class="container">
         <div class="topBar">
-            <a href="{{ url_for('account.createUser') }}">Create User</a>
+            <a href="{{ url_for('createUser') }}">Create User</a>
             {% with messages = get_flashed_messages() %}
                 {% if messages %}
                     {% for message in messages %}

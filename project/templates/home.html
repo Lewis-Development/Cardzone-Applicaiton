@@ -2,21 +2,13 @@
 {% block content %}
     <div class="container">
         <div class="options">
-            <a href="{{ url_for('main.home') }}">
+            <a href="{{ url_for('home') }}">
                 <i class="fas fa-file-signature"></i>
-                <div>Orders</div>
+                <div>Order Data</div>
             </a>
-            <a href="{{ url_for('account.userManagement') }}">
-                <i class="fas fa-file-invoice"></i>
-                <div>Sales</div>
-            </a>
-            <a href="{{ url_for('account.userManagement') }}">
-                <i class="fas fa-calendar-alt"></i>
-                <div>Timesheets</div>
-            </a>
-            <a href="{{ url_for('account.userManagement') }}">
+            <a href="{{ url_for('userManagement') }}">
                 <i class="fas fa-users"></i>
-                <div>Users</div>
+                <div>User Data</div>
             </a>
         </div>
     </div>
