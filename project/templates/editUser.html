@@ -3,14 +3,14 @@
     <div class="container">
         <form class="userForm" method="POST" action="">
             {{ form.hidden_tag() }}
-            <legend>Create New User</legend>
+            <legend>Edit Excisting User</legend>
             <fieldset>
                 <div class="inputs">
-                    {{ form.name(class="required", placeholder="Full Name") }}
+                    {{ form.name(placeholder="Full Name") }}
                     {{ form.address(placeholder="Delivery Address") }}
                     {{ form.email(placeholder="Email Address") }}
                     {{ form.phone(placeholder="Phone No.") }}
-                    {{ form.password(class="required", placeholder="Password") }}
+                    {{ form.password(class="required", placeholder="New Password") }}
                     {{ form.area(placeholder="Area Manager") }}
                 </div>
 
@@ -18,6 +18,7 @@
                     {{ form.access() }}
                 </div>
             </fieldset>
+
             <div>
                 {{ form.submit(class="submitButton") }}
             </div>
