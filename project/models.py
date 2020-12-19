@@ -11,7 +11,7 @@ class users(db.Model, UserMixin):
     address = db.Column(db.String(80))
     email = db.Column(db.String(50))
     phone = db.Column(db.String(15))
-    area = db.Column(db.String(15))
+    area = db.Column(db.String(30))
     password = db.Column(db.String(60), nullable=False, default='password')
     access = db.Column(db.Integer, nullable=False, default=1)
 

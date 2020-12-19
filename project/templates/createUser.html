@@ -5,15 +5,15 @@
     <legend>Create User</legend>
     <fieldset>
         <div class="inputs">
-            {{ form.name(placeholder="Full Name") }}
+            {{ form.name(class="required", placeholder="Full Name") }}
             {{ form.address(placeholder="Delivery Address") }}
             {{ form.email(placeholder="Email Address") }}
             {{ form.phone(placeholder="Phone No.") }}
-            {{ form.password(placeholder="Password") }}
+            {{ form.password(class="required", placeholder="Password") }}
+            {{ form.area(placeholder="Area Manager") }}
         </div>
 
         <div class="selects">
-            {{ form.area() }}
             {{ form.access() }}
         </div>
     </fieldset>

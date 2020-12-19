@@ -8,5 +8,5 @@ class userList(Table):
     phone = Col('Phone')
     area = Col('Area')
     access = Col('Access')
-    edit = LinkCol('Edit', 'removeUser', url_kwargs=dict(id='id'))
+    edit = LinkCol('Edit', 'editUser', url_kwargs=dict(id='id'))
     delete = LinkCol('Remove', 'removeUser', url_kwargs=dict(id='id'))

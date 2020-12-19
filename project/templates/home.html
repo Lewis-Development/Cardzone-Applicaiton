@@ -4,12 +4,20 @@
         <div class="options">
             <a href="{{ url_for('home') }}">
                 <i class="fas fa-file-signature"></i>
-                <div>Order Data</div>
+                <div>Orders</div>
+            </a>
+            <a href="{{ url_for('userManagement') }}">
+                <i class="fas fa-file-invoice"></i>
+                <div>Sales</div>
+            </a>
+            <a href="{{ url_for('userManagement') }}">
+                <i class="fas fa-calendar-alt"></i>
+                <div>Timesheets</div>
             </a>
             <a href="{{ url_for('userManagement') }}">
                 <i class="fas fa-users"></i>
-                <div>User Data</div>
+                <div>Users</div>
             </a>
         </div>
     </div>
-{% endblock content %}
+{% endblock content %} 

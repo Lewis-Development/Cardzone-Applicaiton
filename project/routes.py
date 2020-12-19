@@ -1,7 +1,7 @@
 from flask import render_template, url_for, flash, redirect, request
 from flask_login import login_user, logout_user, current_user, login_required
 from project import app, db, bcrypt
-from project.forms import loginForm, userForm
+from project.forms import loginForm, createUserForm, editUserForm
 from project.models import users
 from project.tables import userList
 
@@ -45,7 +45,7 @@ def userManagement():
 @app.route("/createUser", methods=['GET', 'POST'])
 @login_required
 def createUser():
-    form = userForm()
+    form = createUserForm()
 
     if form.validate_on_submit():
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
@@ -68,6 +68,38 @@ def createUser():
         return redirect(url_for('userManagement'))
 
     return render_template('createUser.html', title='Create User', form=form)
+
+@app.route('/editUser/<int:id>', methods=['GET', 'POST'])
+@login_required
+def editUser(id):
+    form = editUserForm()
+
+    find = db.session.query(users).filter(users.id==id)
+    user = find.first()
+
+    if form.validate_on_submit():
+        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+
+        user.name = form.name.data
+        user.address = form.address.data
+        user.email = form.email.data
+        user.phone = form.phone.data
+        user.area = form.area.data
+        user.password = hashed_password
+        user.access = form.access.data
+
+        db.session.commit()
+
+        flash(f'- Updated User ({user.name})')
+        return redirect(url_for('userManagement'))
+    elif request.method == 'GET':
+        form.name.data = user.name
+        form.address.data = user.address
+        form.email.data = user.email
+        form.phone.data = user.phone
+        form.area.data = user.area
+        form.access.data = user.access
+    return render_template('editUser.html', title='Edit User',form=form)
 
 @app.route('/removeUser/<int:id>', methods=['GET', 'POST'])
 @login_required

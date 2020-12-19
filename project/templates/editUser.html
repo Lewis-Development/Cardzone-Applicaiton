@@ -1,0 +1,27 @@
+{% extends ".master.html" %}
+{% block content %}
+    <div class="container">
+        <form class="userForm" method="POST" action="">
+            {{ form.hidden_tag() }}
+            <legend>Edit Excisting User</legend>
+            <fieldset>
+                <div class="inputs">
+                    {{ form.name(placeholder="Full Name") }}
+                    {{ form.address(placeholder="Delivery Address") }}
+                    {{ form.email(placeholder="Email Address") }}
+                    {{ form.phone(placeholder="Phone No.") }}
+                    {{ form.password(class="required", placeholder="New Password") }}
+                    {{ form.area(placeholder="Area Manager") }}
+                </div>
+
+                <div class="selects">
+                    {{ form.access() }}
+                </div>
+            </fieldset>
+
+            <div>
+                {{ form.submit(class="submitButton") }}
+            </div>
+        </form>
+    </div>
+{% endblock content %} 
