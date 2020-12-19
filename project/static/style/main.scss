@@ -184,6 +184,16 @@ header {
             }
         }
 
+        input {
+            border: 1px solid c(faded);
+            border-radius: 4px;
+            box-sizing: border-box;
+            float: right;
+            outline: 0;
+            padding: 8px 24px;
+            text-align: center;
+        }
+
         .alert {
             color: c(warning);
             padding: 8px 24px;
