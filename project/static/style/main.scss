@@ -192,6 +192,8 @@ header {
             outline: 0;
             padding: 8px 24px;
             text-align: center;
+
+            &:focus { border: 1px solid c(dark); }
         }
 
         .alert {
