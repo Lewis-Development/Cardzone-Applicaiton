@@ -1,0 +1,24 @@
+{% extends ".master.html" %}
+{% block content %}
+<form class="userForm" method="POST" action="">
+    {{ form.hidden_tag() }}
+    <legend>Create Supplier</legend>
+    <fieldset>
+        <div class="inputs">
+            {{ form.name(class="required", placeholder="Full Name") }}
+            {{ form.address(placeholder="Delivery Address") }}
+            {{ form.email1(placeholder="Email Address #1") }}
+            {{ form.email2(placeholder="Email Address #2") }}
+            {{ form.email3(placeholder="Email Address #3") }}
+            {{ form.phone(placeholder="Phone No.") }}
+        </div>
+
+        <div class="selects">
+            {{ form.type() }}
+        </div>
+    </fieldset>
+    <div>
+        {{ form.submit(class="submitButton") }}
+    </div>
+</form>
+{% endblock content %}
