@@ -36,13 +36,13 @@ def logout():
 def home():
     return render_template('home.html', title='Home')
 
-@app.route("/userManagement")
+@app.route("/displayUsers")
 @login_required
-def userManagement():
+def displayUsers():
     table = userList(users.query.all())
-    return render_template('userManagement.html', title='Users', table=table)
+    return render_template('user/displayUsers.html', title='Users', table=table)
 
-@app.route("/createUser", methods=['GET', 'POST'])
+@app.route("/displayUsers/createUser", methods=['GET', 'POST'])
 @login_required
 def createUser():
     form = createUserForm()
@@ -65,11 +65,11 @@ def createUser():
 
         flash(f'- Created User ({user.name})')
 
-        return redirect(url_for('userManagement'))
+        return redirect(url_for('user/displayUsers'))
 
-    return render_template('createUser.html', title='Create User', form=form)
+    return render_template('user/createUser.html', title='Create User', form=form)
 
-@app.route('/editUser/<int:id>', methods=['GET', 'POST'])
+@app.route('/displayUsers/editUser/<int:id>', methods=['GET', 'POST'])
 @login_required
 def editUser(id):
     form = editUserForm()
@@ -91,7 +91,7 @@ def editUser(id):
         db.session.commit()
 
         flash(f'- Updated User ({user.name})')
-        return redirect(url_for('userManagement'))
+        return redirect(url_for('user/displayUsers'))
     elif request.method == 'GET':
         form.name.data = user.name
         form.address.data = user.address
@@ -99,9 +99,9 @@ def editUser(id):
         form.phone.data = user.phone
         form.area.data = user.area
         form.access.data = user.access
-    return render_template('editUser.html', title='Edit User',form=form)
+    return render_template('user/editUser.html', title='Edit User',form=form)
 
-@app.route('/removeUser/<int:id>', methods=['GET', 'POST'])
+@app.route('/displayUsers/removeUser/<int:id>', methods=['GET', 'POST'])
 @login_required
 def removeUser(id):
     find = db.session.query(users).filter(users.id==id)
@@ -112,4 +112,4 @@ def removeUser(id):
         db.session.delete(user)
         db.session.commit()
     
-    return redirect(url_for('userManagement'))
+    return redirect(url_for('user/displayUsers'))
