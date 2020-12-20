@@ -33,4 +33,4 @@ class suppliers(db.Model):
 class orders(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    supplier = db.Column(db.Integer, db.ForeignKey('suppliers.id'), nullable=False))
+    supplier = db.Column(db.Integer, db.ForeignKey('suppliers.id'), nullable=False)
